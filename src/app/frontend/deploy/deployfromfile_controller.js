@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {stateName as workloads} from 'workloads/workloads_state';
+import {stateName as workloads} from 'workloads/state';
 
 import showDeployAnywayDialog from './deployanyway_dialog';
 
@@ -80,7 +80,7 @@ export default class DeployFromFileController {
 
   /**
    * Deploys the application based on the state of the controller.
-   *
+   * @return {!angular.$q.Promise|undefined}
    * @export
    */
   deploy(validate = true) {
@@ -129,7 +129,11 @@ export default class DeployFromFileController {
       defer.promise.finally(() => {
         this.isDeployInProgress_ = false;
       });
+
+      return defer.promise;
     }
+
+    return undefined;
   }
 
   /**
