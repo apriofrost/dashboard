@@ -19,7 +19,7 @@ export class InternalErrorController {
   /**
    * @param {!./state.StateParams} $stateParams
    * * @param {!./../chrome/nav/nav_service.NavService} kdNavService
-   *   @param {!../common/appconfig/appconfig_service.AppConfigService} kdAppConfigService
+   *   @param {!../common/appconfig/service.AppConfigService} kdAppConfigService
    * @ngInject
    */
   constructor($stateParams, kdNavService, kdAppConfigService) {
@@ -64,9 +64,9 @@ export class InternalErrorController {
   }
 
   /**
-     * @export
-     * @return {string}
-     */
+   * @export
+   * @return {string}
+   */
   getErrorData() {
     if (this.error && this.error.data && this.error.data.length > 0) {
       return this.error.data;
